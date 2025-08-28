@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 0.5rem;
+  
+  /* Primary color - Google Blue */
+  --primary: 217 80% 58%;   	 
+  --primary-foreground: 0 0% 100%;
+  
+  /* Secondary color - Google Green */
+  --secondary: 135 50% 43%;
+  --secondary-foreground: 0 0% 100%;
+  
+  /* Accent color - Google Yellow */
+  --accent: 45 100% 50%;
+  --accent-foreground: 0 0% 0%;
+  
+  /* System Colors */
+  --success: 135 50% 43%;
+  --success-foreground: 0 0% 100%;
+  --success-muted: 135 50% 90%;
+
+  --warning: 45 100% 50%;
+  --warning-foreground: 0 0% 0%;
+  --warning-muted: 45 100% 90%;
+
+  --error: 5 90% 58%;
+  --error-foreground: 0 0% 100%;
+  --error-muted: 5 90% 90%;
+
+  --info: 217 80% 58%;
+  --info-foreground: 0 0% 100%;
+  --info-muted: 217 80% 90%;
+  
+  /* Surface Colors */
+  --surface: 0 0% 100%;
+  --surface-foreground: 0 0% 13%;
+  --surface-muted: 0 0% 96%;
+
+  --background: 0 0% 100%;
+  --foreground: 0 0% 13%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 13%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 13%;
+
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 46%;
+
+  /* Primary color shades */
+  --primary-50: 217 80% 97%;
+  --primary-100: 217 80% 94%;
+  --primary-200: 217 80% 88%;
+  --primary-300: 217 80% 78%;
+  --primary-400: 217 80% 68%;
+  --primary-500: 217 80% 58%;
+  --primary-600: 217 80% 48%;
+  --primary-700: 217 80% 38%;
+  --primary-800: 217 80% 28%;
+  --primary-900: 217 80% 18%;
+  
+  /* Secondary color shades */
+  --secondary-50: 135 50% 97%;
+  --secondary-100: 135 50% 94%;
+  --secondary-200: 135 50% 88%;
+  --secondary-300: 135 50% 78%;
+  --secondary-400: 135 50% 63%;
+  --secondary-500: 135 50% 53%;
+  --secondary-600: 135 50% 43%;
+  --secondary-700: 135 50% 33%;
+  --secondary-800: 135 50% 23%;
+  --secondary-900: 135 50% 13%;
+  
+  /* Accent color shades */
+  --accent-50: 45 100% 97%;
+  --accent-100: 45 100% 94%;
+  --accent-200: 45 100% 88%;
+  --accent-300: 45 100% 78%;
+  --accent-400: 45 100% 68%;
+  --accent-500: 45 100% 58%;
+  --accent-600: 45 100% 50%;
+  --accent-700: 45 100% 40%;
+  --accent-800: 45 100% 30%;
+  --accent-900: 45 100% 20%;
+  
+  /* System Variables */
+  --border: 0 0% 90%;
+  --input: var(--border);
+  --ring: var(--primary);
+}
+
+.dark {
+  --background: 220 20% 10%;
+  --foreground: 0 0% 95%;
+
+  --card: 220 20% 12%;
+  --card-foreground: 0 0% 95%;
+
+  --popover: 220 20% 12%;
+  --popover-foreground: 0 0% 95%;
+
+  --primary: 217 80% 65%;
+  --primary-foreground: 0 0% 0%;
+
+  --secondary: 135 50% 50%;
+  --secondary-foreground: 0 0% 0%;
+
+  --muted: 220 20% 18%;
+  --muted-foreground: 0 0% 70%;
+
+  --accent: 45 100% 60%;
+  --accent-foreground: 0 0% 0%;
+
+  --border: 220 20% 20%;
+  --input: 220 20% 20%;
+  --ring: 217 80% 65%;
+  
+  /* Dark Mode System Colors */
+  --success: 135 50% 50%;
+  --warning: 45 100% 60%;
+  --error: 5 90% 65%;
+  --info: 217 80% 65%;
+  
+  /* Surface Colors */
+  --surface: 220 20% 12%;
+  --surface-foreground: 0 0% 95%;
+  --surface-muted: 220 20% 18%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .todo-container {
+    @apply max-w-3xl mx-auto p-4 sm:p-6;
+  }
+  
+  .todo-header {
+    @apply flex items-center justify-between mb-6;
+  }
+  
+  .todo-input {
+    @apply w-full px-4 py-3 rounded-lg border border-border bg-surface text-surface-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all;
+  }
+  
+  .todo-filters {
+    @apply flex gap-2 mb-4 border-b border-border pb-2;
+  }
+  
+  .filter-button {
+    @apply px-3 py-1 rounded-md text-sm font-medium transition-colors;
+  }
+  
+  .filter-button-active {
+    @apply bg-primary text-primary-foreground;
+  }
+  
+  .filter-button-inactive {
+    @apply bg-muted text-muted-foreground hover:bg-muted/80;
+  }
+  
+  .todo-item {
+    @apply flex items-center gap-3 p-3 rounded-lg mb-2 bg-card text-card-foreground border border-border transition-all;
+  }
+  
+  .todo-item-completed {
+    @apply bg-success-muted border-success/20;
+  }
+  
+  .todo-item-pending {
+    @apply bg-warning-muted border-warning/20;
+  }
+  
+  .todo-item-urgent {
+    @apply bg-error-muted border-error/20;
+  }
+  
+  .todo-checkbox {
+    @apply h-5 w-5 rounded border-2 border-muted-foreground text-primary focus:ring-primary focus:ring-offset-0;
+  }
+  
+  .todo-text {
+    @apply flex-1 text-foreground;
+  }
+  
+  .todo-text-completed {
+    @apply line-through text-muted-foreground;
+  }
+  
+  .todo-actions {
+    @apply flex items-center gap-2;
+  }
+  
+  .todo-button {
+    @apply p-1.5 rounded-md transition-colors;
+  }
+  
+  .todo-button-edit {
+    @apply bg-info-muted text-info hover:bg-info hover:text-info-foreground;
+  }
+  
+  .todo-button-delete {
+    @apply bg-error-muted text-error hover:bg-error hover:text-error-foreground;
+  }
+  
+  .todo-stats {
+    @apply mt-6 p-3 bg-muted rounded-lg text-sm text-muted-foreground flex justify-between;
+  }
+  
+  .settings-button {
+    @apply p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors;
+  }
+  
+  .neumorphic-card {
+    @apply bg-surface rounded-xl shadow-[5px_5px_10px_rgba(0,0,0,0.05),-5px_-5px_10px_rgba(255,255,255,0.8)] dark:shadow-[5px_5px_10px_rgba(0,0,0,0.2),-5px_-5px_10px_rgba(255,255,255,0.05)];
+  }
+}
+
+/* Custom animations */
+.task-complete-animation {
+  animation: taskComplete 0.3s ease-in-out;
+}
+
+@keyframes taskComplete {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
